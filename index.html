@@ -1,0 +1,229 @@
+<!doctype html>
+<html lang="fr"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-title" content="Mes menus">
+<title>Mes menus</title>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@600;700&family=Hanken+Grotesk:wght@400;600&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#eaf1ed;--card:#fff;--tx:#13241d;--mu:#61746a;--ac:#0e6b57;--ac2:#e0f0e9;--onac:#fff;--mid:#f0a92e;--soir:#5a5fc2;--ok:#1d8a5a;--no:#c2512f;--bd:#d6e2db;--sh:0 1px 2px #14322814,0 8px 22px #14322812;--g1:#0d5c4a;--g2:#1f9674;color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media(prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#0c1411;--card:#15201b;--tx:#e7f0eb;--mu:#8fa498;--ac:#4fd1a5;--ac2:#18382e;--onac:#06231a;--mid:#f5b94d;--soir:#9ea3ff;--ok:#5fcf93;--no:#f08a72;--bd:#24342c;--sh:none;--g1:#0b2a23;--g2:#14503e;color-scheme:dark}}
+:root[data-theme="dark"]{--bg:#0c1411;--card:#15201b;--tx:#e7f0eb;--mu:#8fa498;--ac:#4fd1a5;--ac2:#18382e;--onac:#06231a;--mid:#f5b94d;--soir:#9ea3ff;--ok:#5fcf93;--no:#f08a72;--bd:#24342c;--sh:none;--g1:#0b2a23;--g2:#14503e;color-scheme:dark}
+html{scroll-padding-top:env(safe-area-inset-top,0px)}
+*{box-sizing:border-box}[hidden]{display:none!important}
+body{margin:0;background:var(--bg);color:var(--tx);font:16px/1.4 "Hanken Grotesk",system-ui,sans-serif;padding-bottom:84px}
+.hd{background:linear-gradient(135deg,var(--g1),var(--g2));color:#fff;border-radius:0 0 26px 26px;padding:20px 18px 24px}
+.in{max-width:640px;margin:auto}
+.hd h1{margin:0;font:700 30px "Bricolage Grotesque",system-ui,sans-serif;letter-spacing:-.5px}
+.hd p{margin:2px 0 0;opacity:.85}.hd p::first-letter{text-transform:uppercase}
+#app{max-width:640px;margin:auto;padding:4px 12px 12px}
+button,input,select,textarea{font:inherit;color:inherit}
+button{background:var(--card);border:1px solid var(--bd);border-radius:12px;padding:8px 14px}
+button.pri,.pri{background:var(--ac);color:var(--onac);border-color:var(--ac);font-weight:600}
+input,select,textarea{background:var(--card);border:1px solid var(--bd);border-radius:12px;padding:9px 10px;width:100%;margin:3px 0}
+input[type=checkbox]{width:20px;height:20px;margin:0 8px 0 0;accent-color:var(--ac)}
+textarea{min-height:110px}
+.r{display:flex;justify-content:space-between;align-items:center;gap:8px;margin:6px 0}
+.card{background:var(--card);border-radius:20px;padding:14px;margin:12px 0;box-shadow:var(--sh)}
+.mu{color:var(--mu);font-size:14px}
+.mini{padding:5px 11px;border-radius:999px;font-size:13px}
+.nav{display:flex;justify-content:space-between;align-items:center;text-align:center;margin:14px 0 4px;font:600 17px "Bricolage Grotesque",system-ui,sans-serif}
+.nav button{width:42px;height:42px;border-radius:50%;padding:0;font-size:20px}
+.nav a{display:block;color:var(--ac);font:14px "Hanken Grotesk",system-ui,sans-serif}
+.day{background:var(--card);border-radius:20px;padding:14px;margin:12px 0;box-shadow:var(--sh)}
+.day.past{opacity:.55}.day.now{outline:2px solid var(--ac)}
+.dh{display:flex;gap:12px;align-items:center;margin-bottom:6px}
+.dn{display:grid;place-items:center;width:48px;height:48px;border-radius:15px;background:var(--ac2);color:var(--ac);font:700 22px "Bricolage Grotesque",system-ui,sans-serif}
+.now .dn{background:var(--ac);color:var(--onac)}
+.dh b{text-transform:capitalize;font-size:17px}
+.tag{font-size:12px;background:var(--ac);color:var(--onac);border-radius:999px;padding:1px 9px;margin-left:6px}
+.slot{background:var(--bg);border-radius:14px;padding:10px 12px;margin-top:8px;border-left:4px solid var(--mid)}
+.slot.soir{border-left-color:var(--soir)}
+.lb{font-weight:700}
+.meal{padding-top:8px;margin-top:6px;border-top:1px dashed var(--bd)}
+.step{display:inline-flex;align-items:center;gap:8px;background:var(--card);border:1px solid var(--bd);border-radius:999px;padding:2px}
+.step button{border:0;background:var(--ac2);color:var(--ac);border-radius:50%;width:30px;height:30px;padding:0;font-weight:700}
+.it{display:flex;justify-content:space-between;font-size:14px;color:var(--mu);padding:2px 0}.it b{padding:0 8px;cursor:pointer}
+.l{display:flex;justify-content:space-between;align-items:center;gap:8px;width:100%;text-align:left;margin:5px 0;padding:12px 14px}
+.ok{color:var(--ok);font-size:13px}.no{color:var(--no);font-size:13px}
+.chips{display:flex;flex-wrap:wrap}
+.chip{display:inline-flex;gap:6px;background:var(--ac2);border-radius:999px;padding:4px 11px;margin:3px 5px 3px 0;font-size:14px}
+.chip b{cursor:pointer;color:var(--no)}
+.cat{border-top:1px solid var(--bd)}.cat .cat{margin-left:12px}
+.tree{padding:4px 14px}.tree>.cat{border-top:0}
+summary{display:flex;justify-content:space-between;align-items:center;padding:12px 2px;font-weight:600;cursor:pointer;list-style:none}
+summary::-webkit-details-marker{display:none}
+summary em{font-style:normal;font-weight:400;font-size:13px;color:var(--mu);background:var(--bg);border-radius:999px;padding:1px 10px}
+.cat[open]>summary{color:var(--ac)}
+.add{margin:6px 0 12px;color:var(--ac)}
+.ch{font:600 15px "Bricolage Grotesque",system-ui,sans-serif;color:var(--ac);margin:14px 0 2px}
+.tb{position:fixed;left:0;right:0;bottom:0;display:flex;gap:4px;padding:6px 8px calc(6px + env(safe-area-inset-bottom,0px));background:var(--card);border-top:1px solid var(--bd)}
+.tb button{flex:1;display:flex;flex-direction:column;align-items:center;gap:1px;border:0;border-radius:14px;background:none;padding:6px 2px;font-size:12px;color:var(--mu)}
+.tb button span{font-size:21px}
+.tb button.on{background:var(--ac2);color:var(--ac);font-weight:600}
+.ov{position:fixed;inset:0;background:#0009;display:flex;align-items:flex-end;justify-content:center;z-index:20}
+.sh{background:var(--bg);width:100%;max-width:600px;max-height:90%;overflow:auto;border-radius:24px 24px 0 0;padding:20px 14px calc(14px + env(safe-area-inset-bottom,0px));position:relative;animation:up .22s ease-out}
+.sh::before{content:"";position:absolute;top:8px;left:50%;width:40px;height:4px;margin-left:-20px;border-radius:4px;background:var(--bd)}
+@keyframes up{from{transform:translateY(40px);opacity:0}}
+@media(prefers-reduced-motion:reduce){.sh{animation:none}}
+</style></head><body>
+<header class="hd"><div class="in"><h1>Mes menus</h1><p id="dt"></p></div></header>
+<div id="app"></div>
+<nav class="tb"><button data-t="plan" onclick="tab='plan';R()"><span>🗓️</span>Planning</button><button data-t="rec" onclick="tab='rec';R()"><span>📖</span>Recettes</button><button data-t="cour" onclick="tab='cour';R()"><span>🛒</span>Courses</button><button data-t="base" onclick="tab='base';R()"><span>🥬</span>Base</button></nav>
+<script>
+const $=s=>document.querySelector(s),f=x=>Math.round(x*10)/10;
+const pad=n=>String(n).padStart(2,"0"),iso=d=>d.getFullYear()+"-"+pad(d.getMonth()+1)+"-"+pad(d.getDate());
+const today=()=>iso(new Date());
+const addD=(k,n)=>{const d=new Date(k+"T12:00:00");d.setDate(d.getDate()+n);return iso(d)};
+const fd=(k,o)=>new Date(k+"T12:00:00").toLocaleDateString("fr-FR",o);
+const esc=s=>String(s).replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
+const IC={"Viandes":"🥩","Charcuterie":"🥓","Poissons et fruits de mer":"🐟","Œufs":"🥚","Produits laitiers":"🧀","Légumes":"🥕","Fruits":"🍎","Féculents":"🍝","Épicerie":"🫙","Surgelés":"❄️","Boissons":"🍷","Mes ingrédients":"✍️"},ic=c=>IC[c]||"📦";
+let S={ing:[],pw:{},rec:[],plan:{}},tab="plan",off=0,E=null,ew=null,BQ="",OPEN=new Set(),C={from:null,to:null,day:"all",chk:{}};
+try{Object.assign(S,JSON.parse(localStorage.getItem("menus2")||"{}"));delete S.ciq}catch(e){}
+const save=()=>{try{localStorage.setItem("menus2",JSON.stringify(S))}catch(e){alert("Stockage plein : exporte une sauvegarde.")}};
+const SD=`Viandes/Bœuf/Haché=Steak haché 5% MG~125;Steak haché 15% MG~125;Viande hachée;Boulettes de bœuf~30
+Viandes/Bœuf/Grillades=Entrecôte~300;Faux-filet~250;Rumsteck~250;Filet~200;Tournedos~150;Côte de bœuf~1000;Bavette d’aloyau~150;Onglet~150;Hampe~150;Araignée~120;Basse côte~250;Steak de rond de tranche~150
+Viandes/Bœuf/Rôtis=Rôti de rumsteck;Rôti de rond de gîte;Rôti de tende de tranche;Rôti de noix;Rôti de macreuse
+Viandes/Bœuf/Mijotés et bouillis=Paleron;Macreuse à pot-au-feu;Jarret;Joue;Gîte;Plat de côtes;Queue;Collier;Morceaux à bourguignon
+Viandes/Bœuf/Abats=Foie de bœuf;Langue;Cœur;Rognon;Tripes
+Viandes/Veau/Escalopes et côtes=Escalope de veau~120;Côte de veau~200;Paupiette de veau~120;Osso buco~250
+Viandes/Veau/Rôtis et mijotés=Noix de veau;Sous-noix;Quasi;Rôti de veau;Épaule de veau;Tendron (blanquette);Jarret de veau
+Viandes/Veau/Abats=Foie de veau;Ris de veau
+Viandes/Porc/Côtes et grillades=Côte première~180;Côte d’échine~180;Filet mignon~400;Filet de porc~500;Travers (ribs);Poitrine de porc
+Viandes/Porc/Rôtis et mijotés=Rôti de longe;Rôti d’échine;Rôti de palette;Jarret de porc;Jambonneau;Joue de porc
+Viandes/Agneau/Morceaux=Gigot;Épaule d’agneau;Côtelette d’agneau~100;Carré d’agneau;Selle;Souris d’agneau~350;Collier;Morceaux à navarin
+Viandes/Volaille/Poulet=Poulet entier~1500;Blanc de poulet~150;Escalope de poulet~120;Cuisse de poulet~200;Haut de cuisse~150;Pilon~100;Aile de poulet~60
+Viandes/Volaille/Dinde=Escalope de dinde~120;Cuisse de dinde;Rôti de dinde
+Viandes/Volaille/Canard et autres=Magret de canard~350;Cuisse de canard~250;Confit de canard;Pintade entière~1200;Caille~150;Lapin entier~1200;Râble de lapin;Cuisse de lapin~200
+Charcuterie/Charcuterie=Jambon blanc (tranche)~40;Jambon cru (tranche)~20;Lardons;Bacon (tranche)~15;Saucisse de Toulouse~100;Chipolata~50;Merguez~70;Andouillette~150;Boudin noir~100;Saucisson sec (tranche)~5;Rillettes;Chorizo
+Poissons et fruits de mer/Poissons gras=Saumon (pavé)~150;Thon (steak)~150;Sardine~60;Maquereau~200;Hareng~150;Truite~250;Anchois
+Poissons et fruits de mer/Poissons maigres=Cabillaud (dos)~150;Colin~150;Lieu noir;Merlu;Églefin;Sole~250;Bar~400;Dorade~350;Raie;Julienne;Lotte;Limande
+Poissons et fruits de mer/Fruits de mer=Crevettes~10;Gambas~30;Moules~15;Huîtres~50;Saint-Jacques~25;Calamar;Langoustine;Crabe;Homard
+Poissons et fruits de mer/Fumés et conserves=Saumon fumé (tranche)~30;Thon en boîte;Sardines en boîte;Surimi (bâtonnet)~15
+Œufs/Œufs=Œuf~60;Jaune d’œuf~20;Blanc d’œuf~35
+Produits laitiers/Laits=Lait entier;Lait demi-écrémé;Lait végétal
+Produits laitiers/Crèmes et beurre=Crème fraîche épaisse;Crème liquide;Beurre;Mascarpone
+Produits laitiers/Yaourts et fromages blancs=Yaourt nature~125;Yaourt grec~125;Fromage blanc;Skyr
+Produits laitiers/Fromages/Pâte molle=Camembert~250;Brie;Munster;Chèvre (bûche)
+Produits laitiers/Fromages/Pâte pressée=Emmental râpé;Comté;Gruyère;Cantal;Saint-Nectaire;Gouda;Edam;Parmesan;Raclette (tranche)~25
+Produits laitiers/Fromages/Frais=Mozzarella~125;Feta;Ricotta;Fromage frais;Chèvre frais
+Produits laitiers/Fromages/Bleus=Roquefort;Bleu d’Auvergne;Gorgonzola
+Légumes/Racines=Carotte~100~10-4;Pomme de terre~150~1-12;Patate douce~250~9-1;Betterave~150~10-3;Radis~20~3-6;Navet~120~10-3;Panais~150~10-3;Céleri-rave~600~10-3
+Légumes/Bulbes=Oignon~110~1-12;Ail (gousse)~5~6-9;Échalote~30~1-12;Poireau~150~9-3;Fenouil~250~10-3
+Légumes/Feuilles=Salade verte~250~4-10;Épinard~~3-6;Roquette~~4-10;Mâche~~10-3;Blette~~5-10;Chou kale~~10-3;Endive~100~11-3
+Légumes/Choux=Chou-fleur~700~10-3;Brocoli~400~9-11;Chou vert~800~10-3;Chou rouge~900~10-3
+Légumes/Légumes-fruits=Tomate~120~6-9;Tomate cerise~15~6-9;Courgette~250~6-9;Aubergine~300~7-9;Poivron~200~6-9;Concombre~350~5-9;Courge butternut~1000~9-1;Potiron~2000~9-12
+Légumes/Autres=Haricots verts~~6-9;Petits pois~~5-7;Asperge~25~4-6;Artichaut~300~5-10;Maïs~250~7-10;Champignon de Paris~20~1-12;Céleri branche~~9-3
+Fruits/À pépins=Pomme~150~9-4;Poire~170~8-12;Coing~250~10-12
+Fruits/À noyau=Cerise~8~5-7;Pêche~150~6-9;Nectarine~150~6-9;Abricot~45~6-8;Prune~40~7-9;Mirabelle~10~8-9
+Fruits/Agrumes=Orange~180~11-3;Clémentine~70~11-2;Citron~100~10-4;Pamplemousse~300~11-3
+Fruits/Baies=Fraise~20~4-7;Framboise~4~6-9;Myrtille~2~7-8;Cassis~~7-8
+Fruits/Autres=Raisin~~8-10;Melon~600~6-9;Pastèque~~7-9;Kiwi~80~11-4;Figue~50~8-10;Châtaigne~15~10-12
+Fruits/Exotiques=Banane~120~;Ananas~900~;Mangue~300~;Avocat~200~;Noix de coco~
+Féculents/Pâtes=Spaghetti;Penne;Tagliatelles;Fusilli;Coquillettes;Macaroni;Lasagnes (feuilles);Vermicelles
+Féculents/Riz=Riz basmati;Riz long;Riz rond;Riz complet;Riz thaï
+Féculents/Céréales et semoules=Semoule;Boulgour;Quinoa;Couscous;Flocons d’avoine;Polenta;Blé
+Féculents/Légumineuses=Lentilles vertes;Lentilles corail;Pois chiches;Haricots rouges;Haricots blancs;Pois cassés;Flageolets;Fèves
+Féculents/Pains=Baguette~250;Pain de mie (tranche)~30;Pain complet;Wrap~60;Pain burger~70
+Épicerie/Huiles=Huile d’olive;Huile de tournesol;Huile de colza;Huile de sésame
+Épicerie/Vinaigres=Vinaigre balsamique;Vinaigre de cidre;Vinaigre de vin
+Épicerie/Condiments et sauces=Moutarde;Ketchup;Mayonnaise;Sauce soja;Concentré de tomate;Coulis de tomate;Tomates concassées;Lait de coco;Bouillon (cube)~10
+Épicerie/Sucre et farine=Sucre;Farine;Cassonade;Miel;Levure chimique;Maïzena;Chocolat noir;Confiture
+Épicerie/Épices et herbes=Sel;Poivre;Paprika;Cumin;Curry;Cannelle;Herbes de Provence;Persil;Basilic;Coriandre;Ciboulette;Thym;Romarin;Menthe;Laurier
+Épicerie/Fruits secs et noix=Amandes;Noix~5;Noisettes;Cacahuètes;Raisins secs;Pruneaux~10;Dattes~15
+Épicerie/Conserves=Maïs en boîte;Petits pois en boîte;Haricots verts en boîte;Pois chiches en boîte
+Surgelés/Légumes=Petits pois surgelés;Épinards surgelés;Poêlée de légumes
+Boissons/Cuisine=Vin blanc;Vin rouge;Bouillon liquide;Eau`;
+const SEED=[];SD.split("\n").forEach(l=>{const[p,r]=l.split("=");r.split(";").forEach(t=>{const[n,w,m]=t.trim().split("~");const o={p,n,w:+w||0};if(m!==undefined)o.m=m;SEED.push(o)})});
+const ALL=()=>SEED.concat(S.ing);
+const pw=n=>{if(S.pw[n])return S.pw[n];const i=ALL().find(i=>i.n===n);return i&&i.w||0};
+const cat=n=>{const i=ALL().find(i=>i.n===n);return i?i.p.split("/")[0]:"Autres"};
+const mo=new Date().getMonth()+1;
+const inS=m=>{if(!m)return false;const[a,b]=m.split("-").map(Number);return a<=b?mo>=a&&mo<=b:mo>=a||mo<=b};
+const badge=i=>typeof i.m==="string"?(inS(i.m)?'<span class="ok">● de saison</span>':'<span class="no">○ hors saison</span>'):"";
+function sheet(){const o=document.createElement("div");o.className="ov";document.body.append(o);return{o,set(h){o.innerHTML='<div class="sh">'+h+'</div>'},close(){o.remove()}}}
+async function out(text,title){try{if(navigator.share){await navigator.share({title,text});return}}catch(e){if(e.name==="AbortError")return}try{await navigator.clipboard.writeText(text);alert("Copié dans le presse-papiers.")}catch(e){prompt("Copie le texte :",text)}}
+
+function picker(cb){const w=sheet(),g=s=>w.o.querySelector(s);let path=[],q="",sel=null,msg="",subs=[],leaves=[],P="";
+const draw=()=>{P=path.join("/");let h="";
+ if(sel){const u0=pw(sel.n)?"pièce":/Laits|Huiles|Vinaigres|Boissons/.test(sel.p)?"cl":"g";
+  h=`<div class="r"><b>${esc(sel.n)}</b><button class="mini" data-a="x">✕</button></div>${badge(sel)}<div class="r"><input id="q" type="number" min="0" step="any" value="1" inputmode="decimal"><select id="u">${["g","kg","cl","pièce","càs","càc"].map(u=>`<option${u===u0?" selected":""}>${u}</option>`).join("")}</select></div><label class="mu">Poids d’une pièce en g (facultatif)<input id="w" type="number" inputmode="decimal" value="${pw(sel.n)||""}"></label><div class="r"><button data-a="bk">‹ Retour</button><button class="pri" data-a="ok">Ajouter</button></div>`}
+ else{subs=[];leaves=[];const all=ALL();
+  if(q.trim()){const t=q.trim().toLowerCase();leaves=all.filter(i=>i.n.toLowerCase().includes(t)).slice(0,80)}
+  else all.forEach(i=>{if(i.p===P)leaves.push(i);else if(!P||i.p.startsWith(P+"/")){const s=(P?i.p.slice(P.length+1):i.p).split("/")[0];if(!subs.includes(s))subs.push(s)}});
+  h=`<div class="r"><b>${path.length?esc(path.join(" › ")):"Ingrédients"}</b><button class="mini" data-a="x">✕</button></div><input id="s" placeholder="Rechercher…" value="${esc(q)}">`+(path.length&&!q?`<button class="l" data-a="up">‹ Retour</button>`:"")+(msg?`<p class="ok">${esc(msg)}</p>`:"")+subs.map((s,k)=>`<button class="l" data-a="sub" data-i="${k}"><span>${path.length?"":ic(s)+" "}${esc(s)}</span><span>›</span></button>`).join("")+leaves.map((i,k)=>`<button class="l" data-a="lf" data-i="${k}"><span>${esc(i.n)}${q?`<br><small class="mu">${esc(i.p)}</small>`:""}</span>${badge(i)}</button>`).join("")+`<button class="l mu" data-a="new">+ Nouvel ingrédient ici</button>`}
+ w.set(h)};
+w.o.onclick=e=>{const b=e.target.closest("button");if(!b)return;const a=b.dataset.a,i=+b.dataset.i;
+ if(a==="x")w.close();else if(a==="up"){path.pop();draw()}else if(a==="sub"){path.push(subs[i]);draw()}
+ else if(a==="lf"){if(cb){sel=leaves[i];msg="";draw()}}else if(a==="bk"){sel=null;draw()}
+ else if(a==="new"){const n=prompt("Nom du nouvel ingrédient");if(n){S.ing.push({p:P||"Mes ingrédients",n:n.trim(),w:0});save();draw()}}
+ else if(a==="ok"){const qv=parseFloat(g("#q").value),wv=parseFloat(g("#w").value);if(!(qv>0))return;if(wv>0){S.pw[sel.n]=wv;save()}cb(sel.n,qv,g("#u").value);msg="✓ "+sel.n+" ajouté";sel=null;draw()}};
+w.o.oninput=e=>{if(e.target.id==="s"){q=e.target.value;draw();const v=g("#s");v.focus();v.setSelectionRange(v.value.length,v.value.length)}};
+draw()}
+
+const meal=(k,i,m)=>`<div class="meal"><div class="r"><b>${esc(m.name)}</b><button class="mini" onclick="delM('${k}',${i})">Retirer</button></div><div class="r"><span class="mu">Nombre de personnes</span><span class="step"><button onclick="pp('${k}',${i},-1)">−</button><span>👥 ${m.p}</span><button onclick="pp('${k}',${i},1)">+</button></span></div>`+m.items.map((x,j)=>`<div class="it"><span>${f(x.q*m.p/m.bp)} ${x.u} ${esc(x.n)}</span><b onclick="delI('${k}',${i},${j})">×</b></div>`).join("")+`</div>`;
+function vPlan(){const s=addD(today(),off*7),t=today();
+let h=`<div class="nav"><button onclick="off--;R()">‹</button><div>${fd(s,{day:"numeric",month:"short"})} – ${fd(addD(s,6),{day:"numeric",month:"short"})}${off?`<a onclick="off=0;R()">Revenir à aujourd’hui</a>`:""}</div><button onclick="off++;R()">›</button></div>`;
+for(let d=0;d<7;d++){const k=addD(s,d),ms=S.plan[k]||[];
+ h+=`<section class="day${k<t?" past":""}${k===t?" now":""}"><div class="dh"><span class="dn">${fd(k,{day:"numeric"})}</span><div><b>${fd(k,{weekday:"long"})}</b>${k===t?`<span class="tag">aujourd’hui</span>`:""}<div class="mu">${fd(k,{month:"long",year:"numeric"})}</div></div></div>`;
+ [["midi","☀️ Midi"],["soir","🌙 Soir"]].forEach(([sl,lb])=>{const L=ms.map((m,i)=>[m,i]).filter(([m])=>(m.s||"midi")===sl);
+  h+=`<div class="slot ${sl}"><div class="r"><span class="lb">${lb}</span><span><button class="mini" onclick="addRec('${k}','${sl}')">+ Recette</button> <button class="mini" onclick="addIng('${k}','${sl}')">+ Ingrédients</button></span></div>`+(L.length?L.map(([m,i])=>meal(k,i,m)).join(""):`<div class="mu">Rien de prévu</div>`)+`</div>`});
+ h+=`</section>`}
+return h}
+function pp(k,i,d){const m=S.plan[k][i];m.p=Math.max(1,m.p+d);save();R()}
+function delM(k,i){S.plan[k].splice(i,1);save();R()}
+function delI(k,i,j){const m=S.plan[k][i];m.items.splice(j,1);if(!m.r&&!m.items.length)S.plan[k].splice(i,1);save();R()}
+function addRec(k,sl){if(!S.rec.length){alert("Crée d’abord une recette dans l’onglet Recettes.");return}
+ const w=sheet();w.set(`<div class="r"><b>Choisir une recette</b><button class="mini" data-a="x">✕</button></div>`+S.rec.map((r,i)=>`<button class="l" data-i="${i}"><span>${esc(r.name)}</span><span class="mu">${r.p} pers.</span></button>`).join(""));
+ w.o.onclick=e=>{const b=e.target.closest("button");if(!b)return;if(b.dataset.a==="x"){w.close();return}const r=S.rec[+b.dataset.i];(S.plan[k]=S.plan[k]||[]).push({name:r.name,s:sl,bp:r.p,p:r.p,r:1,items:JSON.parse(JSON.stringify(r.items))});save();w.close();R()}}
+function addIng(k,sl){picker((n,q,u)=>{const ms=S.plan[k]=S.plan[k]||[];let m=ms.find(x=>!x.r&&(x.s||"midi")===sl);if(!m){m={name:"Repas composé",s:sl,bp:2,p:2,items:[]};ms.push(m)}m.items.push({n,q:q*m.bp/m.p,u});save();R()})}
+
+function vRec(){let h=`<button class="pri" onclick="editR(-1)" style="width:100%;margin-top:12px">+ Nouvelle recette</button>`;
+S.rec.forEach((r,i)=>h+=`<div class="card"><div class="r"><b>${esc(r.name)}</b><span class="mu">👥 ${r.p}</span></div><div class="mu">${r.items.map(t=>f(t.q)+" "+t.u+" "+esc(t.n)).join(", ")}</div><div class="r"><button class="mini" onclick="editR(${i})">Modifier</button><button class="mini" onclick="delR(${i})">Supprimer</button></div></div>`);
+return h+(S.rec.length?"":`<p class="mu">Aucune recette pour l’instant.</p>`)}
+function delR(i){if(confirm("Supprimer cette recette ?")){S.rec.splice(i,1);save();R()}}
+function editR(i){E=i<0?{name:"",p:2,items:[],steps:""}:JSON.parse(JSON.stringify(S.rec[i]));E.i=i;if(!ew)ew=sheet();drawE()}
+function drawE(){ew.set(`<div class="r"><b>Recette</b><button class="mini" onclick="closeE()">✕</button></div><input placeholder="Nom de la recette" value="${esc(E.name)}" oninput="E.name=this.value"><label class="mu">Nombre de personnes<input type="number" min="1" value="${E.p}" oninput="E.p=Math.max(1,+this.value||1)"></label><p><b>Ingrédients</b></p>`+E.items.map((t,k)=>`<div class="r"><span>${f(t.q)} ${t.u} ${esc(t.n)}</span><button class="mini" onclick="E.items.splice(${k},1);drawE()">×</button></div>`).join("")+`<button onclick="picker((n,q,u)=>{E.items.push({n,q,u});drawE()})">+ Ingrédient</button><p><b>Déroulé</b></p><textarea placeholder="Étape par étape…" oninput="E.steps=this.value">${esc(E.steps)}</textarea><div class="r"><button onclick="closeE()">Annuler</button><button class="pri" onclick="saveE()">Enregistrer</button></div>`)}
+function closeE(){ew.close();ew=null}
+function saveE(){if(!E.name.trim()){alert("Donne un nom à la recette.");return}const i=E.i;delete E.i;if(i<0)S.rec.push(E);else S.rec[i]=E;save();closeE();R()}
+
+function agg(from,to,day){const m={},t=today();
+Object.keys(S.plan).sort().forEach(k=>{if(k<t||k<from||k>to||(day!=="all"&&k!==day))return;
+ S.plan[k].forEach(ml=>ml.items.forEach(x=>{let q=x.q*ml.p/ml.bp,u=x.u;if(u==="kg"){q*=1000;u="g"}if(u==="pièce"&&pw(x.n)){q*=pw(x.n);u="g"}const key=x.n+"|"+u;m[key]=m[key]||{n:x.n,u,q:0,key};m[key].q+=q}))});
+return Object.values(m).sort((a,b)=>cat(a.n).localeCompare(cat(b.n),"fr")||a.n.localeCompare(b.n,"fr"))}
+function fq(r){if(r.u!=="g")return f(r.q)+" "+(r.u==="pièce"?"pièce(s)":r.u);let s=r.q>=1000?f(r.q/1000)+" kg":f(r.q)+" g";const w=pw(r.n);if(w)s+=" ≈ "+Math.max(1,Math.ceil(r.q/w-0.1))+" pièce(s)";return s}
+function vCour(){const t=today();if(!C.from||C.from<t)C.from=t;if(!C.to||C.to<C.from)C.to=addD(C.from,6);
+const days=Object.keys(S.plan).filter(k=>k>=C.from&&k<=C.to&&k>=t&&S.plan[k].length).sort();if(C.day!=="all"&&!days.includes(C.day))C.day="all";
+C.L=agg(C.from,C.to,C.day);let last="";
+return `<div class="card"><div class="r"><label class="mu">Du<input type="date" min="${t}" value="${C.from}" onchange="C.from=this.value||today();R()"></label><label class="mu">Au<input type="date" min="${t}" value="${C.to}" onchange="C.to=this.value||C.from;R()"></label></div><select onchange="C.day=this.value;R()"><option value="all">Toute la période</option>${days.map(k=>`<option value="${k}"${C.day===k?" selected":""}>${fd(k,{weekday:"long",day:"numeric",month:"long"})}</option>`).join("")}</select><p class="mu">Les jours passés ne sont pas pris en compte.</p></div>`+
+(C.L.length?`<div class="card">`+C.L.map(r=>{const c=cat(r.n),hd=c!==last?(last=c,`<div class="ch">${ic(c)} ${esc(c)}</div>`):"";return hd+`<label class="r"><span><input type="checkbox" data-k="${esc(r.key)}" ${C.chk[r.key]===false?"":"checked"} onchange="C.chk[this.dataset.k]=this.checked">${esc(r.n)}</span><span class="mu">${fq(r)}</span></label>`}).join("")+`</div><button class="pri" style="width:100%" onclick="exportL()">Exporter la sélection</button>`:`<p class="mu">Ajoute des repas dans le planning : la liste se construit à partir d’aujourd’hui.</p>`)}
+function exportL(){const rows=C.L.filter(r=>C.chk[r.key]!==false);if(!rows.length)return;let last="",tx="Liste de courses"+(C.day==="all"?" ("+fd(C.from,{day:"numeric",month:"short"})+" – "+fd(C.to,{day:"numeric",month:"short"})+")":" ("+fd(C.day,{weekday:"long",day:"numeric",month:"long"})+")");
+rows.forEach(r=>{const c=cat(r.n);if(c!==last){last=c;tx+="\n\n"+c}tx+="\n• "+r.n+" : "+fq(r)});out(tx,"Liste de courses")}
+
+const MOIS=`<option value="">—</option>`+["janv.","févr.","mars","avr.","mai","juin","juil.","août","sept.","oct.","nov.","déc."].map((m,i)=>`<option value="${i+1}">${m}</option>`).join("");
+function addForm(p0){const w=sheet(),g=s=>w.o.querySelector(s),paths=[...new Set([p0,...ALL().map(i=>i.p)].filter(Boolean))].sort((a,b)=>a.localeCompare(b,"fr"));
+w.set(`<div class="r"><b>Nouvel ingrédient</b><button class="mini" data-a="x">✕</button></div><label class="mu">Nom<input id="fn" placeholder="ex. Côte de bœuf maturée"></label><label class="mu">Catégorie<select id="fp">${paths.map(p=>`<option${p===p0?" selected":""}>${esc(p)}</option>`).join("")}<option value="+">➕ Nouvelle catégorie…</option></select></label><input id="fnp" placeholder="Nouvelle catégorie (ex. Légumes/Racines)" hidden><label class="mu">Poids d’une pièce en g (facultatif)<input id="fw" type="number" inputmode="decimal"></label><div class="r"><label class="mu">Saison : du<select id="fa">${MOIS}</select></label><label class="mu">au<select id="fb">${MOIS}</select></label></div><button class="pri" style="width:100%" data-a="ok">Ajouter</button>`);
+w.o.onchange=e=>{if(e.target.id==="fp")g("#fnp").hidden=e.target.value!=="+"};
+w.o.onclick=e=>{const b=e.target.closest("button");if(!b)return;if(b.dataset.a==="x"){w.close();return}
+ const n=g("#fn").value.trim(),sp=g("#fp").value,p=(sp==="+"?g("#fnp").value:sp).trim().replace(/\s*\/\s*/g,"/").replace(/^\/|\/$/g,"");
+ if(!n||!p){alert("Renseigne le nom et la catégorie.");return}
+ const o={p,n,w:parseFloat(g("#fw").value)||0},a=g("#fa").value,z=g("#fb").value;if(a&&z)o.m=a+"-"+z;
+ S.ing.push(o);let acc="";p.split("/").forEach(s=>{acc=acc?acc+"/"+s:s;OPEN.add(acc)});save();w.close();R()}}
+function delIng(i){if(confirm("Supprimer « "+S.ing[i].n+" » ?")){S.ing.splice(i,1);save();R()}}
+function vBase(){const root={c:{},it:[]};
+ALL().forEach(i=>{let n=root;i.p.split("/").forEach(s=>{n=n.c[s]=n.c[s]||{c:{},it:[]}});n.it.push(i)});
+const cnt=n=>n.it.length+Object.values(n.c).reduce((a,x)=>a+cnt(x),0);
+const chip=i=>`<span class="chip">${esc(i.n)}${typeof i.m==="string"?(inS(i.m)?" 🟢":" ⚪"):""}${S.ing.includes(i)?`<b onclick="delIng(${S.ing.indexOf(i)})">×</b>`:""}</span>`;
+const rn=(name,n,path,d)=>`<details class="cat" data-p="${esc(path)}" ${OPEN.has(path)?"open":""} ontoggle="this.open?OPEN.add(this.dataset.p):OPEN.delete(this.dataset.p)"><summary><span>${d?"":ic(name)+" "}${esc(name)}</span><em>${cnt(n)}</em></summary>${Object.entries(n.c).map(([k,v])=>rn(k,v,path+"/"+k,d+1)).join("")}<div class="chips">${n.it.map(chip).join("")}</div><button class="mini add" data-p="${esc(path)}" onclick="addForm(this.dataset.p)">+ Ajouter ici</button></details>`;
+const sea=SEED.filter(i=>typeof i.m==="string"&&/^(Fruits|Légumes)/.test(i.p)&&inS(i.m)),q=BQ.trim().toLowerCase(),res=q?ALL().filter(i=>i.n.toLowerCase().includes(q)).slice(0,100):[];
+return `<div class="card"><b>🟢 De saison en ce moment</b><div class="chips">${sea.map(i=>`<span class="chip">${esc(i.n)}</span>`).join("")}</div></div><div class="card"><div class="r"><b>${ALL().length} ingrédients</b><button class="mini pri" onclick="addForm('')">+ Ajouter</button></div><input placeholder="Rechercher…" value="${esc(BQ)}" onchange="BQ=this.value;R()">${q?(res.length?res.map(i=>`<div class="r"><span>${esc(i.n)}</span><span class="mu">${esc(i.p)}</span></div>`).join(""):`<p class="mu">Aucun résultat.</p>`):""}</div>`+
+(q?"":Object.entries(root.c).map(([k,v])=>`<div class="card tree">${rn(k,v,k,0)}</div>`).join(""))+
+`<div class="card"><b>Sauvegarde</b><p class="mu">Les données restent sur cet appareil, historique des semaines compris. Exporte-les pour les copier ailleurs.</p><div class="r"><button onclick="bak()">Exporter</button><button onclick="rest()">Importer</button></div></div>`}
+function bak(){out(JSON.stringify({rec:S.rec,plan:S.plan,ing:S.ing,pw:S.pw}),"Sauvegarde menus")}
+function rest(){const t=prompt("Colle ici la sauvegarde :");if(!t)return;try{Object.assign(S,JSON.parse(t));save();R()}catch(e){alert("Sauvegarde illisible.")}}
+
+function R(){$("#dt").textContent=new Date().toLocaleDateString("fr-FR",{weekday:"long",day:"numeric",month:"long"});$("#app").innerHTML={plan:vPlan,rec:vRec,cour:vCour,base:vBase}[tab]();document.querySelectorAll(".tb button").forEach(b=>b.classList.toggle("on",b.dataset.t===tab))}
+R();
+try{navigator.storage&&navigator.storage.persist&&navigator.storage.persist()}catch(e){}
+try{const c=document.createElement("canvas");c.width=c.height=180;const x=c.getContext("2d"),g=x.createLinearGradient(0,0,180,180);g.addColorStop(0,"#0d5c4a");g.addColorStop(1,"#1f9674");x.fillStyle=g;x.fillRect(0,0,180,180);x.font="100px serif";x.textAlign="center";x.textBaseline="middle";x.fillText("🥕",90,98);const l=document.createElement("link");l.rel="apple-touch-icon";l.href=c.toDataURL("image/png");document.head.append(l)}catch(e){}
+</script></body></html>
